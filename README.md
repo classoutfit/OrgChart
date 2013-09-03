@@ -3,6 +3,8 @@ OrgChart
 
 A behaviour to extract data from a tree based table and a helper to display it in an organisation chart manner. There are jQuery versions of this but as they simply produce HTML I thought it would be sensible to create a helper that produces the HTML without relying on jQuery.
 
+See screenshot for example.
+
 What it does
 ------------
 
