@@ -116,4 +116,4 @@ Ever tried to order data from a tree based table? Unless the data is stored in a
 
 You can rely on the lft column assuming that the data is neatly stored and maintained (and you can use the Tree->reorder function for that) but in my experience that can add a noticeble performance overhead, especially on larger tables. This is because each update cascades further updates that can get into a deep loop.
 
-To maintain this I add my TreeOrder plugin that contains the TreeOrder behaviour, which is also on my Git page.
+To maintain this I add my TreeOrder plugin that contains the TreeOrder behaviour, which is also on my Git page (https://github.com/classoutfit/TreeOrder).
