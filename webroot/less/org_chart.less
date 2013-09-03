@@ -1,0 +1,95 @@
+@base-font-size: 14px;
+@dark-grey: #95A5A6;
+@light-grey: #ECF0F1;
+@main-color: #2980B9;
+@white: #FFF;
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+div.orgChart {
+	h2 {
+		margin : 1em 0;
+		font-size : @base-font-size;
+		border-bottom : none;
+	}
+	table {
+
+		width : 100%;
+
+		tr.lines {
+			td {
+				&.line {
+					width : 1px;
+					height : 20px;
+				}
+				&.top {
+					border-top : 2px solid @dark-grey;
+				}
+				&.left {
+					border-right : 2px solid @dark-grey;
+				}
+				&.right {
+					border-left : 2px solid @dark-grey;
+				}
+			}
+			&.child_count {
+				td {
+					border-color: @light-grey;
+				}
+			}
+		}
+
+		td {
+			text-align : center;
+			vertical-align : top;
+			padding : 0;
+			div.node {
+				cursor : pointer;
+				display : inline-block;
+				padding : 4px;
+				width: 30%;
+				.border-radius(8px);
+				p,
+				a {
+					color: @white;
+				}
+				&.parent {
+					background-color : @dark-grey;
+				}
+				&.selected {
+					background-color : lighten(@main-color, 10%);
+				}
+				&.sibling {
+					background-color : @dark-grey;
+				}
+				&.child {
+					background-color : @dark-grey;
+				}
+				&.child_count {
+					background-color : @light-grey;
+					p,
+					a {
+						color: @dark-grey;
+					}
+					&:hover {
+						p,
+						a {
+							color: @white;
+						}
+					}
+				}
+				&:hover {
+					cursor: pointer;
+					background-color: @main-color;
+					a {
+						color: @white;
+					}
+				}
+			}
+		}
+	}
+}
