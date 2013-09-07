@@ -117,6 +117,7 @@ div.org-side-to-side {
 					padding: 30px;
 					a {
 						color: @white;
+						font-weight: 200;
 					}
 				}
 				&.secondary-node {
@@ -125,6 +126,7 @@ div.org-side-to-side {
 					padding: 20px;
 					a {
 						color: @white;
+						font-weight: 200;
 					}
 				}
 				&.tertiary-node {
@@ -143,6 +145,20 @@ div.org-side-to-side {
 					a {
 						color: @white;
 					}
+				}
+				a.primary {
+					font-size: @base-font-size * 1.25;
+				}
+				p {
+					margin: 10px 0 0;
+				}
+				p,
+				ul,
+				a.business_activity {
+					color: lighten(@wisteria, 40%);
+				}
+				a.business_activity:hover {
+					color: white;
 				}
 			}
 
