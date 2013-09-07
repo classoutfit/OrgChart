@@ -1,5 +1,5 @@
 <?php
-class OrgChartHelper extends AppHelper {
+class TopToBottomHelper extends AppHelper {
 
 	var $helpers = array('Html');
 
@@ -8,7 +8,7 @@ class OrgChartHelper extends AppHelper {
 		$this->controller = $controller;
 		$this->action = $action;
 
-		$this->output = '<div class="orgChart">';
+		$this->output = '<div class="org-top-to-bottom">';
 
 		foreach ($nodes as $node) {
 			$this->_addNode($node);
