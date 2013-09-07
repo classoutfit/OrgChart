@@ -260,7 +260,31 @@ class LeftToRightHelper extends AppHelper {
 						);
 
 						// Build the content
-						$content = '<a href="' . $url . '">' . $feed['title'] . '</a>' . $this->__arrow();
+						$content = '<a href="' . $url . '" class="primary">' . $feed['title'] . '</a>' . $this->__arrow();
+
+						if (empty($feed['BusinessActivity'])) {
+							$content .= '<p>No supporting business activities</p>';
+						} else {
+							$content .= '<p>Supporting business activities:</p>';
+
+							$content .= '<ul>';
+
+							foreach ($feed['BusinessActivity'] as $id => $businessActivity) {
+								$content .= '<li>' . $this->Html->link(
+									$businessActivity,
+									array(
+										'controller' => 'business_activities',
+										'action' => 'business_functions',
+										$id
+									),
+									array(
+										'class' => 'business_activity'
+									)
+								) . '</li>';
+							}
+
+							$content .= '</ul>';
+						}
 
 						// Outpt the primary node
 						$this->__node(
