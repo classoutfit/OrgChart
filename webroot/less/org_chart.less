@@ -10,7 +10,7 @@
           border-radius: @radius;
 }
 
-div.orgChart {
+div.org-top-to-bottom {
 	h2 {
 		margin : 1em 0;
 		font-size : @base-font-size;
@@ -23,22 +23,22 @@ div.orgChart {
 		tr.lines {
 			td {
 				&.line {
-					width : 1px;
-					height : 20px;
+					width : 2px;
+					height : 30px;
 				}
 				&.top {
-					border-top : 2px solid @dark-grey;
+					border-top : 2px solid @concrete;
 				}
 				&.left {
-					border-right : 2px solid @dark-grey;
+					border-right : 2px solid @concrete;
 				}
 				&.right {
-					border-left : 2px solid @dark-grey;
+					border-left : 2px solid @concrete;
 				}
 			}
 			&.child_count {
 				td {
-					border-color: @light-grey;
+					border-color: @clouds;
 				}
 			}
 		}
@@ -48,32 +48,33 @@ div.orgChart {
 			vertical-align : top;
 			padding : 0;
 			div.node {
-				cursor : pointer;
+				// cursor : pointer;
 				display : inline-block;
-				padding : 4px;
+				padding : 8px;
 				width: 30%;
 				.border-radius(8px);
 				p,
 				a {
 					color: @white;
+					margin: 0;
 				}
 				&.parent {
-					background-color : @dark-grey;
+					background-color : @concrete;
 				}
 				&.selected {
-					background-color : lighten(@main-color, 10%);
+					background-color : lighten(@wisteria, 10%);
 				}
 				&.sibling {
-					background-color : @dark-grey;
+					background-color : @concrete;
 				}
 				&.child {
-					background-color : @dark-grey;
+					background-color : @concrete;
 				}
 				&.child_count {
-					background-color : @light-grey;
+					background-color : @clouds;
 					p,
 					a {
-						color: @dark-grey;
+						color: @concrete;
 					}
 					&:hover {
 						p,
@@ -84,12 +85,157 @@ div.orgChart {
 				}
 				&:hover {
 					cursor: pointer;
-					background-color: @main-color;
+					background-color: @wisteria;
 					a {
 						color: @white;
 					}
 				}
 			}
+		}
+	}
+}
+
+div.org-side-to-side {
+
+	margin: 20px 0;
+
+	table {
+
+		width: 100%;
+
+			div {
+				&.node {
+					.border-radius(8px);
+					font-weight: 200;
+					span.arrow {
+						float: right;
+					}
+				}
+				&.primary-node {
+					background-color: @amethyst;
+					color: @white;
+					padding: 30px;
+					a {
+						color: @white;
+					}
+				}
+				&.secondary-node {
+					background-color: @silver;
+					color: @white;
+					padding: 20px;
+					a {
+						color: @white;
+					}
+				}
+				&.tertiary-node {
+					background-color: @clouds;
+					color: @asbestos;
+					padding: 10px;
+					a {
+						color: @white;
+						font-weight: 200;
+					}
+				}
+				&.plain {
+					background-color: @white;
+					color: @asbestos;
+					padding: 10px;
+					a {
+						color: @white;
+					}
+				}
+			}
+
+		thead {
+			th {
+				font-weight: 200;
+				padding-bottom: 30px;
+				background-color: @white;
+				color: @silver;
+				span {
+					padding: 10px;
+					.border-radius(8px);
+					&.primary {
+						background-color: @amethyst;
+						color: @white;
+					}
+					&.secondary {
+						background-color: @silver;
+						color: @white;
+					}
+				}
+			}
+		}
+
+		tr {
+			padding: 0;
+
+			td {
+				padding: 0;
+				// border: 1px solid @clouds;
+				// min-height: 20px;
+				&.line-top,
+				&.line-right,
+				&.line-bottom,
+				&.line-left {
+					padding: 20px;
+				}
+				&.line-top {
+					border-top: 2px solid @concrete;
+					height: 50%;
+				}
+				&.line-left {
+					border-left: 2px solid @concrete;
+				}
+				&.line-right {
+					border-right: 2px solid @concrete;
+				}
+				&.line-bottom {
+					border-bottom: 1px solid @concrete;
+					height: 50%;
+				}
+				&.tertiary {
+					border-color: @clouds;
+				}
+			}
+
+			&.spacer {
+				td {
+					padding: 5px;
+				}
+			}
+		}
+	}
+
+	tr.outside {
+
+		td {
+			// width: 33%;
+
+			&.left {
+			}
+
+			&.center {
+				table {
+
+					tr.main-node {
+
+						// td.left {
+						// 	width: 30%;
+						// }
+						// td.centre {
+						// 	width: 40%;
+						// }
+						// td.right {
+						// 	width: 30%;
+						// }
+					}
+				}
+			}
+
+			&.right {
+			}
+
 		}
 	}
 }
