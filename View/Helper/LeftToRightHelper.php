@@ -101,7 +101,7 @@ class LeftToRightHelper extends AppHelper {
 	private function __inFeed($feed, $key, $feedCount) {
 
 		// Find out how many feeds this one receives - these are the dependents
-		$dependents = $feed['business_function_feed_receive_count'];
+		$dependents = $feed['core_priority_feed_receive_count'];
 
 		// Each feed is in its own row
 		$this->output .= '<tr>';
@@ -274,7 +274,7 @@ class LeftToRightHelper extends AppHelper {
 									$businessActivity,
 									array(
 										'controller' => 'business_activities',
-										'action' => 'business_functions',
+										'action' => 'core_priorities',
 										$id
 									),
 									array(
@@ -416,7 +416,7 @@ class LeftToRightHelper extends AppHelper {
 	private function __outFeed($feed, $key, $feedCount) {
 
 		// Count the feeds to output
-		$dependencies = $feed['business_function_feed_count'];
+		$dependencies = $feed['core_priority_feed_count'];
 
 		// Start a row
 		$this->output .= '<tr>';
