@@ -56,7 +56,7 @@ class LeftToRightHelper extends AppHelper {
 					$this->output .= '<tr><td>';
 
 						// Output a tertiary node with simple text
-						$this->__node('tertiary', 'No dependencies.');
+						$this->__node('tertiary', 'No core priorities.');
 
 					// Close out the cell and row
 					$this->output .= '</td></tr>';
@@ -100,18 +100,18 @@ class LeftToRightHelper extends AppHelper {
  */
 	private function __inFeed($feed, $key, $feedCount) {
 
-		// Find out how many feeds this one receives - these are the dependents
-		$dependents = $feed['core_priority_feed_receive_count'];
+		// Find out how many feeds this one receives
+		$feeds = $feed['core_priority_feed_receive_count'];
 
 		// Each feed is in its own row
 		$this->output .= '<tr>';
 
-			// First output the 'dependent' cell
+			// First output the 'core priority' cell
 			// It goes in a cell that spans two rows
 			$this->output .= '<td rowspan="2">';
 
 				// For simplicity, put the content into a variable
-				$content = 'Depends on ' . $dependents . ' other business ' . __n('function', 'functions', $dependents) . $this->__arrow();
+				$content = $feeds . ' core ' . __n('priority', 'priorities', $feeds) . $this->__arrow();
 
 				// Then output a tertiary node
 				$this->__node(
@@ -363,7 +363,7 @@ class LeftToRightHelper extends AppHelper {
 						// Output a tertiary node
 						$this->__node(
 							'tertiary',
-							'No dependents'
+							'No core priorities'
 						);
 
 				// Close the cell and row
@@ -416,7 +416,7 @@ class LeftToRightHelper extends AppHelper {
 	private function __outFeed($feed, $key, $feedCount) {
 
 		// Count the feeds to output
-		$dependencies = $feed['core_priority_feed_count'];
+		$feeds = $feed['core_priority_feed_count'];
 
 		// Start a row
 		$this->output .= '<tr>';
@@ -452,7 +452,7 @@ class LeftToRightHelper extends AppHelper {
 
 				// Make the content
 				$content = '<a href="' . $url . '">' . $feed['title'] . '</a>';
-				if ($dependencies) {
+				if ($feeds) {
 					$content .= $this->__arrow();
 				}
 
@@ -466,7 +466,7 @@ class LeftToRightHelper extends AppHelper {
 			$this->output .= '</td>';
 
 			// If there are dependencies
-			if ($dependencies) {
+			if ($feeds) {
 				// output a tertiary bottom border
 				$this->__lineTd(array(
 					'lines' => array(
@@ -482,10 +482,10 @@ class LeftToRightHelper extends AppHelper {
 			// Start a cell that spans 2 rows
 			$this->output .= '<td rowspan="2">';
 
-				if ($dependencies) {
+				if ($feeds) {
 
 					// Create the content
-					$content = $dependencies . __n(' dependent', ' dependents', $dependencies);
+					$content = $feeds . '  core ' . __n('priority', ' priorities', $feeds);
 
 					// Output a tertiary node with text content
 					$this->__node(
@@ -520,7 +520,7 @@ class LeftToRightHelper extends AppHelper {
 				));
 			}
 
-			if ($dependencies) {
+			if ($feeds) {
 				// If there are dependencies draw a top tertiary border
 				$this->__lineTd(array(
 					'lines' => array(
